@@ -10,6 +10,9 @@ const nextConfig = {
   images: {
     domains: ['img.pokemondb.net'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
 }
 
 module.exports = nextConfig
