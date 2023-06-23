@@ -5,7 +5,8 @@ type Middleware = (request: NextRequest) => NextResponse
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const redirectIfAuthenticated: Middleware = (request) => {
-  const authSession = request.cookies.get('auth')?.value
+  // const authSession = request.cookies.get('auth')?.value
+  const authSession = true;
 
   if (authSession) {
     return NextResponse.redirect(new URL('/', request.url))
@@ -38,13 +39,13 @@ export default function middleware(request: NextRequest) {
   //   return redirectIfAuthenticated(request)
   // }
 
-  if ([
-    '/',
-    '/pokemons',
-    '/pokemons/client',
-  ].includes(request.nextUrl.pathname)) {
-    return authenticated(request)
-  }
+  // if ([
+  //   '/',
+  //   '/pokemons',
+  //   '/pokemons/client',
+  // ].includes(request.nextUrl.pathname)) {
+  //   return authenticated(request)
+  // }
 
   return NextResponse.next()
 }
